@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1339</width>
+    <height>919</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="GraphicWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>1041</width>
+      <height>841</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>1060</x>
+      <y>490</y>
+      <width>269</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Channel</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="ChannelSelection_CurrentChannelListWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>111</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="toolTipDuration">
+      <number>-1</number>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>0</y>
+       <width>20</width>
+       <height>371</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+    <widget class="QSlider" name="ChannelSelection_MinimumSlider">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>40</y>
+       <width>51</width>
+       <height>291</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>10000</number>
+     </property>
+     <property name="value">
+      <number>3000</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>0</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Min</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>0</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Max</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QSlider" name="ChannelSelection_MaximumSlider">
+     <property name="geometry">
+      <rect>
+       <x>211</x>
+       <y>40</y>
+       <width>51</width>
+       <height>291</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>10000</number>
+     </property>
+     <property name="singleStep">
+      <number>1</number>
+     </property>
+     <property name="value">
+      <number>9999</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_2">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>0</y>
+       <width>21</width>
+       <height>371</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="ChannelSelection_ChannelListWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>111</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="toolTipDuration">
+      <number>-1</number>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::MultiSelection</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ChannelSelection_ChangeChannelPushButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>340</y>
+       <width>111</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Change</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>30</y>
+       <width>111</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Working</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>111</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Total</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="ChannelSelection_MinimumLineEdit">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>340</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="text">
+      <string>0.3</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="ChannelSelection_MaximumLineEdit">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>340</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0.9999</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="ChannelSelection_ChannelListWidgetColor">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>220</y>
+       <width>111</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="toolTipDuration">
+      <number>-1</number>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::NoSelection</enum>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>1060</x>
+      <y>250</y>
+      <width>271</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>0</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Select Cell</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="SelectCell_ListWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>251</width>
+       <height>171</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="SelectCell_ChangeCellPushButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>200</y>
+       <width>251</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Change Cell</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_3">
+    <property name="geometry">
+     <rect>
+      <x>1060</x>
+      <y>10</y>
+      <width>271</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>0</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Select FOV</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="SelectFOV_ListWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>251</width>
+       <height>171</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="SelectFOV_ChangeFOVPushButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>200</y>
+       <width>251</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Change FOV</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1339</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="nativeMenuBar">
+    <bool>false</bool>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionLoad_Mosaic_Tile"/>
+    <addaction name="actionLoad_Mosaic_File"/>
+    <addaction name="actionExit_Cntrl_Q"/>
+   </widget>
+   <widget class="QMenu" name="menuSave">
+    <property name="title">
+     <string>Save</string>
+    </property>
+    <addaction name="actionSave_Cells"/>
+    <addaction name="actionSave_Spots"/>
+    <addaction name="actionSave_Metadata"/>
+   </widget>
+   <widget class="QMenu" name="menuLoad">
+    <property name="title">
+     <string>Load</string>
+    </property>
+    <addaction name="actionLoad_Cells"/>
+    <addaction name="actionLoad_Spots"/>
+    <addaction name="actionLoad_Spot_Metadata"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuSave"/>
+   <addaction name="menuLoad"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionLoad_Mosaic_Tile">
+   <property name="text">
+    <string>Load Mosaic Tile</string>
+   </property>
+  </action>
+  <action name="actionLoad_Mosaic_File">
+   <property name="text">
+    <string>Load Mosaic File</string>
+   </property>
+  </action>
+  <action name="actionExit_Cntrl_Q">
+   <property name="text">
+    <string>Exit (Cntrl+Q)</string>
+   </property>
+  </action>
+  <action name="actionSave_Cells">
+   <property name="text">
+    <string>Save Cells</string>
+   </property>
+  </action>
+  <action name="actionSave_Spots">
+   <property name="text">
+    <string>Save Spots</string>
+   </property>
+  </action>
+  <action name="actionSave_Metadata">
+   <property name="text">
+    <string>Save Metadata</string>
+   </property>
+  </action>
+  <action name="actionLoad_Cells">
+   <property name="text">
+    <string>Load Cells</string>
+   </property>
+  </action>
+  <action name="actionLoad_Spots">
+   <property name="text">
+    <string>Load Spots</string>
+   </property>
+  </action>
+  <action name="actionLoad_Spot_Metadata">
+   <property name="text">
+    <string>Load Spot Metadata</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

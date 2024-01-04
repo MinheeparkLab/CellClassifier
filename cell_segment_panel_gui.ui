@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>807</width>
+    <height>970</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="CellSegment_gridLayout">
+     <item row="13" column="1" colspan="4">
+      <widget class="Line" name="line_10">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="4">
+      <widget class="QPushButton" name="modifyCellsManually_InitializeButton">
+       <property name="text">
+        <string>Initialize</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="3">
+      <layout class="QVBoxLayout" name="modulateCellBoundariesExpandCells_verticalLayout_4">
+       <item>
+        <widget class="QLabel" name="modulateCellBoundaries_CombineCellsSelectedLabel">
+         <property name="frameShape">
+          <enum>QFrame::Panel</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="modulateCellBoundaries_CombineCellsListWidget">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="dragEnabled">
+          <bool>true</bool>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::MultiSelection</enum>
+         </property>
+         <item>
+          <property name="text">
+           <string>All</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="modulateCellBoundaries_combineCellPushButton">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Combine Cells</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="5" column="4">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="classifyCells_MaximumSizeOfCellsLabel">
+         <property name="text">
+          <string>Maximum size of cells (default: 10000)</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="classifyCells_MaximumSizeOfCellsSpinBox">
+         <property name="maximum">
+          <number>1000000</number>
+         </property>
+         <property name="value">
+          <number>10000</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="4" column="4">
+      <layout class="QVBoxLayout" name="classifyCellsMinDist_verticalLayout">
+       <item>
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>Minimum distance between cells (default: 15)</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="classifyCells_MinimumDistanceBetweenCellsSpinBox">
+         <property name="value">
+          <number>15</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="10" column="1" colspan="4">
+      <widget class="Line" name="line_9">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1" rowspan="2">
+      <widget class="QLabel" name="Modulate_cell_boundaries_label">
+       <property name="text">
+        <string>Modulate cell boundaries</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="Line" name="line_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1" rowspan="3">
+      <widget class="QLabel" name="Classify_cells_label">
+       <property name="text">
+        <string>Classify cells</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="4">
+      <layout class="QVBoxLayout" name="modulateCellBoundariesExpandCells_verticalLayout_3">
+       <item>
+        <widget class="QLabel" name="modulateCellBoundaries_DeleteCellsSelectedLabel">
+         <property name="frameShape">
+          <enum>QFrame::Panel</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="modulateCellBoundaries_DeleteCellsListWidget">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="dragEnabled">
+          <bool>true</bool>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::MultiSelection</enum>
+         </property>
+         <item>
+          <property name="text">
+           <string>All</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="modulateCellBoundaries_deleteCellPushButton">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Delete Cells</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="12" column="3">
+      <widget class="QPushButton" name="modifyCellsManually_AddNewCellButton">
+       <property name="text">
+        <string>Add New Cell</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="3">
+      <layout class="QVBoxLayout" name="modulateCellBoundariesExpandCells_verticalLayout">
+       <item>
+        <widget class="QLabel" name="modulateCellBoundaries_ExpandCellsSelectedLabel">
+         <property name="frameShape">
+          <enum>QFrame::Panel</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="modulateCellBoundaries_ExpandCellsListWidget">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="dragEnabled">
+          <bool>true</bool>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::MultiSelection</enum>
+         </property>
+         <item>
+          <property name="text">
+           <string>All</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="modulateCellBoundaries_expandCellPushButton">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Expand Cells</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="11" column="1" rowspan="2">
+      <widget class="QLabel" name="Modfiy_cells_manually_label">
+       <property name="text">
+        <string>Modify cells manually</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" rowspan="13">
+      <widget class="Line" name="line_5">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="5" rowspan="13">
+      <widget class="Line" name="line_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="4">
+      <widget class="QPushButton" name="modifyCellsManually_turOFFManualModeButton">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Turn OFF manual mode</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2" colspan="2">
+      <widget class="Line" name="line_20">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1" colspan="4">
+      <widget class="Line" name="line_7">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4">
+      <widget class="Line" name="line_21">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="Line" name="line_19">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="2" rowspan="3">
+      <widget class="Line" name="line_4">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="3">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="classifyCells_MinimumSizeOfCellsLabel">
+         <property name="text">
+          <string>Minimum size of cells (default: 100)</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="classifyCells_MinimumSizeOfCellsSpinBox">
+         <property name="maximum">
+          <number>1000000</number>
+         </property>
+         <property name="value">
+          <number>100</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="8" column="4">
+      <layout class="QVBoxLayout" name="modulateCellBounareisShrinkCells_verticalLayout">
+       <item>
+        <widget class="QLabel" name="modulateCellBoundaries_ShrinkCellsSelectedLabel">
+         <property name="frameShape">
+          <enum>QFrame::Panel</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="modulateCellBoundaries_ShrinkCellsListWidget">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="dragEnabled">
+          <bool>true</bool>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::MultiSelection</enum>
+         </property>
+         <item>
+          <property name="text">
+           <string>All</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="modulateCellBoundaries_shrinkCellPushButton">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Shrink Cells</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="4" column="3">
+      <layout class="QVBoxLayout" name="classifyCellsMethod_verticalLayout">
+       <item>
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>Method</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="classifyCells_MethodSpinBox">
+         <item>
+          <property name="text">
+           <string>Yen</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Otsu</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Triangle</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Li</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Manual</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="Activate_auxiliaries_label">
+       <property name="text">
+        <string>Activate auxiliaries</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="3">
+      <widget class="QPushButton" name="modifyCellsManually_turONManualModeButton">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>Turn ON manual mode</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="2" rowspan="2">
+      <widget class="Line" name="line_6">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="3" colspan="2">
+      <layout class="QVBoxLayout" name="classifyCellsBinarization_verticalLayout">
+       <item>
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>Binarization for manual classification</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="4" column="0" colspan="2">
+          <widget class="QPushButton" name="saveCurrentCells_pushButton">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="text">
+            <string>Save current cells</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0" colspan="2">
+          <widget class="QPushButton" name="runCellClassification_pushButton">
+           <property name="text">
+            <string>Run cell classification</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0" colspan="2">
+          <widget class="QPushButton" name="discardCurrentCells_pushButton">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="text">
+            <string>Discard current changes</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QPushButton" name="binaryForManual_UpdatePushButton">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="text">
+            <string>Update</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QPushButton" name="binaryForManual_InitializePushButton">
+           <property name="text">
+            <string>Initialize</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" rowspan="2">
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QSlider" name="binaryForManual_horizontalSlider">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="maximum">
+              <number>100</number>
+             </property>
+             <property name="value">
+              <number>60</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="tickPosition">
+              <enum>QSlider::TicksAbove</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDoubleSpinBox" name="binaryForManual_doubleSpinBox">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="decimals">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <double>100.000000000000000</double>
+             </property>
+             <property name="value">
+              <double>60.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="binaryForManual_label">
+             <property name="text">
+              <string>60</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item row="3" column="1" colspan="4">
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3" colspan="2">
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="2" column="0">
+        <widget class="QPushButton" name="ActivateAuxiliaries_showCellBoundariesPushButton">
+         <property name="text">
+          <string>Show cell boundaries</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="2">
+        <widget class="QLabel" name="activeAuxiliaries_cellBoundariesSelectedLabel">
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="lineWidth">
+          <number>1</number>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QPushButton" name="ActivateAuxiliaries_hideCellBoundariesPushButton">
+         <property name="text">
+          <string>Hide cell boudaries</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <widget class="QListWidget" name="ActivateAuxiliaries_cellBoundariesListWidget">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::MultiSelection</enum>
+         </property>
+         <item>
+          <property name="text">
+           <string>All</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="11" column="2" rowspan="2">
+      <widget class="Line" name="line_8">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

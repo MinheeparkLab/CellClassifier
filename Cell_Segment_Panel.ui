@@ -1,0 +1,914 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>677</width>
+    <height>717</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QFrame" name="frame">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QFrame" name="frame_2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>311</width>
+          <height>231</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>311</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Activate Cell Boundaries</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="Line" name="line">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>15</y>
+           <width>311</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="ActivateCellBoundaries_cellBoundariesLineEdit">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>40</y>
+           <width>291</width>
+           <height>21</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QListWidget" name="ActivateCellBoundaries_cellBoundariesListWidget">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>70</y>
+           <width>211</width>
+           <height>151</height>
+          </rect>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::MultiSelection</enum>
+         </property>
+         <item>
+          <property name="text">
+           <string>All</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QPushButton" name="ActivateCellBoundaries_cellBoundariesShowPushButton">
+         <property name="geometry">
+          <rect>
+           <x>220</x>
+           <y>70</y>
+           <width>91</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Show</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="ActivateCellBoundaries_cellBoundariesHidePushButton">
+         <property name="geometry">
+          <rect>
+           <x>220</x>
+           <y>110</y>
+           <width>91</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Hide</string>
+         </property>
+        </widget>
+        <zorder>line</zorder>
+        <zorder>label</zorder>
+        <zorder>ActivateCellBoundaries_cellBoundariesLineEdit</zorder>
+        <zorder>ActivateCellBoundaries_cellBoundariesListWidget</zorder>
+        <zorder>ActivateCellBoundaries_cellBoundariesShowPushButton</zorder>
+        <zorder>ActivateCellBoundaries_cellBoundariesHidePushButton</zorder>
+       </widget>
+       <widget class="QFrame" name="frame_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>250</y>
+          <width>631</width>
+          <height>431</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_3">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>311</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Classify cells</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="Line" name="line_3">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>15</y>
+           <width>301</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+        <widget class="QFrame" name="frame_8">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>40</y>
+           <width>141</width>
+           <height>80</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_11">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>141</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Method</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="ClassifyCells_methodComboBox">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>50</y>
+            <width>121</width>
+            <height>26</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>Otsu</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Yen</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Li</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Triangle</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Manual</string>
+           </property>
+          </item>
+         </widget>
+        </widget>
+        <widget class="QFrame" name="frame_5">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>40</y>
+           <width>141</width>
+           <height>80</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_6">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>141</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>min distance b/w cells (default: 15)</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QSpinBox" name="ClassifyCells_minDistanceBetweenCellsSpinBox">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>50</y>
+            <width>121</width>
+            <height>24</height>
+           </rect>
+          </property>
+          <property name="maximum">
+           <number>1000000000</number>
+          </property>
+          <property name="value">
+           <number>15</number>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QFrame" name="frame_6">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>130</y>
+           <width>141</width>
+           <height>80</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_8">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>141</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>min size of cells (default: 100)</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QSpinBox" name="ClassifyCells_minSizeOfCellsSpinBox">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>50</y>
+            <width>121</width>
+            <height>24</height>
+           </rect>
+          </property>
+          <property name="maximum">
+           <number>1000000000</number>
+          </property>
+          <property name="value">
+           <number>100</number>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QFrame" name="frame_7">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>130</y>
+           <width>141</width>
+           <height>80</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_9">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>141</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>max size of cells (default: 30000)</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QSpinBox" name="ClassifyCells_maxSizeOfCellsSpinBox">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>50</y>
+            <width>121</width>
+            <height>24</height>
+           </rect>
+          </property>
+          <property name="maximum">
+           <number>1000000000</number>
+          </property>
+          <property name="value">
+           <number>30000</number>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QFrame" name="frame_4">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>220</y>
+           <width>291</width>
+           <height>131</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_4">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>291</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Binarization</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QSlider" name="classifyCells_binarizationFracHorizontalSlider">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>40</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="maximum">
+           <number>100</number>
+          </property>
+          <property name="value">
+           <number>60</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="tickPosition">
+           <enum>QSlider::TicksAbove</enum>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="classifyCells_binarizationFracLineEdit">
+          <property name="geometry">
+           <rect>
+            <x>230</x>
+            <y>40</y>
+            <width>51</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>0.6</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_5">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>40</y>
+            <width>51</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>frac</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="classifyCells_binarizationAbsLineEdit">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>70</y>
+            <width>131</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_12">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>70</y>
+            <width>51</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>abs</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="Line" name="line_4">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>13</y>
+            <width>291</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="Line" name="line_5">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>40</y>
+            <width>20</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="classifyCells_binarizationShowSketchPushButton">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>100</y>
+            <width>111</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Show sketch</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="classifyCells_binarizationShowInitializePushButton">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>100</y>
+            <width>111</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Initialize</string>
+          </property>
+         </widget>
+         <zorder>line_5</zorder>
+         <zorder>line_4</zorder>
+         <zorder>label_4</zorder>
+         <zorder>classifyCells_binarizationFracHorizontalSlider</zorder>
+         <zorder>classifyCells_binarizationFracLineEdit</zorder>
+         <zorder>label_5</zorder>
+         <zorder>classifyCells_binarizationAbsLineEdit</zorder>
+         <zorder>label_12</zorder>
+         <zorder>classifyCells_binarizationShowSketchPushButton</zorder>
+         <zorder>classifyCells_binarizationShowInitializePushButton</zorder>
+        </widget>
+        <widget class="Line" name="line_7">
+         <property name="geometry">
+          <rect>
+           <x>306</x>
+           <y>0</y>
+           <width>20</width>
+           <height>431</height>
+          </rect>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+        <widget class="QFrame" name="frame_12">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>360</y>
+           <width>291</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QPushButton" name="classifyCells_autoRunPushButton">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>141</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Auto Run</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="classifyCells_manualModeONPushButton">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>30</y>
+            <width>141</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>manual mode ON</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="classifyCells_manualModeOFFPushButton">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>30</y>
+            <width>141</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>manual mode OFF</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="classifyCells_addNewCellPushButton">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>0</y>
+            <width>141</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Add new cell</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QFrame" name="frame_10">
+         <property name="geometry">
+          <rect>
+           <x>330</x>
+           <y>10</y>
+           <width>291</width>
+           <height>201</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_13">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>291</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Transient Cell Container</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QTextBrowser" name="transientCellContainer_textBrowser">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>40</y>
+            <width>271</width>
+            <height>131</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="transientCellContainer_saveCurrentCells">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>170</y>
+            <width>113</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Save</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="transientCellContainer_ClearCurrentCells">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>170</y>
+            <width>113</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Clear</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QFrame" name="frame_11">
+         <property name="geometry">
+          <rect>
+           <x>330</x>
+           <y>220</y>
+           <width>291</width>
+           <height>201</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_14">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>291</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Permanent Cell Container</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QTextBrowser" name="permanentCellContainer_textBrowser">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>40</y>
+            <width>271</width>
+            <height>131</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="permanentCellContainer_SendCurrentCells">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>170</y>
+            <width>113</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Send</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="frame_9">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>10</y>
+          <width>311</width>
+          <height>231</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_15">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>311</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Modulate Cell</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="Line" name="line_6">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>15</y>
+           <width>311</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="ModulateCell_modulateCellLineEdit">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>40</y>
+           <width>291</width>
+           <height>21</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QListWidget" name="ModulateCell_modulateCellListWidget">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>70</y>
+           <width>211</width>
+           <height>151</height>
+          </rect>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::MultiSelection</enum>
+         </property>
+         <item>
+          <property name="text">
+           <string>All</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QPushButton" name="ModulateCell_modulateCellExpandPushButton">
+         <property name="geometry">
+          <rect>
+           <x>220</x>
+           <y>70</y>
+           <width>91</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Expand</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="ModulateCell_modulateCellShrinkPushButton">
+         <property name="geometry">
+          <rect>
+           <x>220</x>
+           <y>110</y>
+           <width>91</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Shrink</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="ModulateCell_modulateCellCombinePushButton">
+         <property name="geometry">
+          <rect>
+           <x>220</x>
+           <y>150</y>
+           <width>91</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Combine</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="ModulateCell_modulateCellDeletePushButton">
+         <property name="geometry">
+          <rect>
+           <x>220</x>
+           <y>190</y>
+           <width>91</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Delete</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

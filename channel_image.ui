@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>295</width>
+    <height>373</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1</width>
+    <height>2</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QFrame" name="frame">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>131</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Channel</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QListWidget" name="ChannelSelection_CurrentChannelListWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>50</y>
+          <width>111</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="toolTipDuration">
+         <number>-1</number>
+        </property>
+        <property name="selectionMode">
+         <enum>QAbstractItemView::SingleSelection</enum>
+        </property>
+       </widget>
+       <widget class="Line" name="line">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>0</y>
+          <width>20</width>
+          <height>341</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QSlider" name="ChannelSelection_MinimumSlider">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>40</y>
+          <width>51</width>
+          <height>261</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>10000</number>
+        </property>
+        <property name="value">
+         <number>3000</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>0</y>
+          <width>51</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Min</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>0</y>
+          <width>51</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Max</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QSlider" name="ChannelSelection_MaximumSlider">
+        <property name="geometry">
+         <rect>
+          <x>211</x>
+          <y>40</y>
+          <width>51</width>
+          <height>261</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>10000</number>
+        </property>
+        <property name="singleStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>9999</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="Line" name="line_2">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>0</y>
+          <width>21</width>
+          <height>251</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QListWidget" name="ChannelSelection_ChannelListWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>90</y>
+          <width>111</width>
+          <height>131</height>
+         </rect>
+        </property>
+        <property name="toolTipDuration">
+         <number>-1</number>
+        </property>
+        <property name="selectionMode">
+         <enum>QAbstractItemView::MultiSelection</enum>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="ChannelSelection_ChangeChannelPushButton">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>310</y>
+          <width>111</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Change</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>9</x>
+          <y>30</y>
+          <width>111</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Working</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>70</y>
+          <width>111</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Total</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ChannelSelection_MinimumLineEdit">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>310</y>
+          <width>51</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>0.3</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ChannelSelection_MaximumLineEdit">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>310</y>
+          <width>51</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0.9999</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QListWidget" name="ChannelSelection_ChannelListWidgetColor">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>230</y>
+          <width>111</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="toolTipDuration">
+         <number>-1</number>
+        </property>
+        <property name="selectionMode">
+         <enum>QAbstractItemView::NoSelection</enum>
+        </property>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<settings><!-- Default kilroy settings -->
+  <!-- Valve parameters -->
+  
+ <celltypes type='string'>
+ WT, WT LPS/rXCL1
+ </celltypes>
+
+ <celltypes_fov type='string'>
+ 46-93, 1-46
+ </celltypes_fov>
+
+ <spotNames type='string'>
+ fiducial, CD86 exon, CD86 Intron 1, CD86 Intron 2, XIST exon
+ </spotNames>
+
+ <mosaic_path type='string'>
+ /Users/hanmanhyuk/Documents/Remote Server/2023-11-10-WT+doublet+cDC1/
+ </mosaic_path>
+
+ <mosaic_name type='string'>
+ 2023-11-10-Alignedmosaic
+ </mosaic_name>
+
+ <save_path type='string'>
+ /Users/hanmanhyuk/Documents/Remote Server/2023-11-10-WT+doublet+cDC1/
+ </save_path>
+
+</settings>

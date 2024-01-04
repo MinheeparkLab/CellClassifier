@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>869</width>
+    <height>278</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="1">
+    <layout class="QGridLayout" name="spotAnalysis_gridLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <property name="leftMargin">
+      <number>15</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>15</number>
+     </property>
+     <property name="spacing">
+      <number>-1</number>
+     </property>
+     <item row="0" column="4" colspan="2">
+      <widget class="QLabel" name="spotSizeMeasurementParameters_label">
+       <property name="text">
+        <string>Spot Quality Control Panel</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="7">
+      <widget class="QPushButton" name="spotVisualization_showSpotsPushButton">
+       <property name="text">
+        <string>Show Spots</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="Line" name="line_11">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1" colspan="2">
+      <layout class="QGridLayout" name="spotLocationIntensityThreshold_verticalLayout">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+       <item row="1" column="2">
+        <widget class="QLabel" name="spotLocalizationParameters_intensityThresholdLabel">
+         <property name="text">
+          <string>60</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QSlider" name="spotLocalizationParameters_intensityThresholdSlider">
+         <property name="maximum">
+          <number>100</number>
+         </property>
+         <property name="singleStep">
+          <number>1</number>
+         </property>
+         <property name="value">
+          <number>60</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QDoubleSpinBox" name="spotLocalizationParameters_intensityThreshold_doubleSpinBox">
+         <property name="maximum">
+          <double>100.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>60.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="3">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Intensity threshold</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="6">
+      <widget class="Line" name="line_8">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="4">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Minimum spot size (default: 1)</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="spotQualityControl_minimumSpotSizeSpinBox">
+         <property name="maximum">
+          <number>100000</number>
+         </property>
+         <property name="value">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="3" column="1" colspan="2">
+      <layout class="QVBoxLayout" name="spotLocationMinimumDistance_verticalLayout">
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Minimum distance (pixel)</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="spotLocalizationMinimumDistance_spinBox">
+         <property name="maximum">
+          <number>1000</number>
+         </property>
+         <property name="value">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="2" column="4" colspan="2">
+      <layout class="QGridLayout" name="spotSizeMeasurementParametersIntensityThreshold_verticalLayout">
+       <item row="1" column="1">
+        <widget class="QDoubleSpinBox" name="spotSizeMeasurementParameters_intensityThreshold_doubleSpinBox">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="maximum">
+          <double>100.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>70.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="spotSizeMeasurementParameters_intensityThresholdLabel">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>70</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="3">
+        <widget class="QLabel" name="label_8">
+         <property name="text">
+          <string>Intensity threshold</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QSlider" name="spotSizeMeasurementParameters_intensityThresholdSlider">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="maximum">
+          <number>100</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="4" column="1" colspan="2">
+      <widget class="QPushButton" name="runSpotLocalization_pushButton">
+       <property name="text">
+        <string>Run Spot Location Analysis</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="4" rowspan="2">
+      <widget class="QRadioButton" name="runSpotQualityControlSwitchPerCell_radioButton">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>Per cell</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1" colspan="2">
+      <widget class="QLabel" name="spotLocationParameters_label">
+       <property name="text">
+        <string>Spot Localization Parameters</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="5">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Maximum spot size (default: 100)</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="spotQualityControl_maximumSpotSizeSpinBox">
+         <property name="maximum">
+          <number>100000</number>
+         </property>
+         <property name="value">
+          <number>100</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="4" column="4" colspan="2">
+      <widget class="QPushButton" name="runSpotQualityControl_pushButton">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>Run Spot Quality Control</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="Line" name="line_4">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1" rowspan="2">
+      <widget class="QPushButton" name="spotLocalizationSave_pushButton">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>Save</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="7" colspan="2">
+      <widget class="QLabel" name="SpotVisualization_label">
+       <property name="text">
+        <string>Spot Visualization</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0" rowspan="5">
+      <widget class="Line" name="line_7">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="6" rowspan="5">
+      <widget class="Line" name="line_10">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="5" rowspan="2">
+      <widget class="QRadioButton" name="runSpotQualityControlSwitchGlobal_radioButton">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>Global</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="8" rowspan="2">
+      <widget class="QPushButton" name="spotVisualization_TurnOFFManualModePushButton">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Turn OFF manual mode</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="7" rowspan="2">
+      <widget class="QPushButton" name="spotVisualization_TurnONManualModePushButton">
+       <property name="text">
+        <string>Turn ON manual mode</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="8">
+      <widget class="QPushButton" name="spotVisualization_hideSpotsPushButton">
+       <property name="text">
+        <string>Hide Spots</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2" rowspan="2">
+      <widget class="QPushButton" name="spotLocalizationInitialize_pushButton">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>Initialize</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3" rowspan="5">
+      <widget class="Line" name="line_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="10">
+      <widget class="Line" name="line_5">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="9" rowspan="5">
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="9">
+      <widget class="Line" name="line_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="7" rowspan="2" colspan="2">
+      <widget class="QListWidget" name="spotLocalization_channelListWidget">
+       <property name="selectionMode">
+        <enum>QAbstractItemView::MultiSelection</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
