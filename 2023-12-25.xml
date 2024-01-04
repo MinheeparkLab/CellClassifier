@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<settings><!-- Default kilroy settings -->
+  <!-- Valve parameters -->
+  
+ <celltype_mode type='string'>
+ barcode
+ </celltype_mode>
+
+ <celltypes type='string'>
+ Async, G2M
+ </celltypes>
+
+ <celltypes_fov type='string'>
+ </celltypes_fov>
+
+ <celltypes_barcode type='string'>
+ B130,B131
+ </celltypes_barcode>
+
+ <spotNames type='string'>
+ fiducial,B130,B131,RNA1,RNA2,RNA3,RNA4,RNA5,RNA6,RNA7,RNA8,RNA9,RNA10,RNA11,RNA12,RNA13,RNA14,RNA15,RNA16,RNA17,RNA18
+ </spotNames>
+
+ <mosaic_path type='string'>
+ /Users/hanmanhyuk/Documents/Remote Server/2023-12-25-JP_CCND/
+ </mosaic_path>
+
+ <mosaic_name type='string'>
+ 2023-10-15-AlignedMosaic
+ </mosaic_name>
+
+ <save_path type='string'>
+ /Users/hanmanhyuk/Documents/Remote Server/2023-12-25-JP_CCND/
+ </save_path>
+
+</settings>
