@@ -23,7 +23,7 @@
  </spotNames>
 
  <mosaic_path type='string'>
- /Users/hanmanhyuk/Documents/Remote Server/2023-12-25-JP_CCND/NewAligned/
+ C:/Users/jipar/Dropbox/1_MP Lab/2_Data/1_ORCA/2023-10-15_K562_CellCycleRNAReduced_CELF4/RNA_expt/Results/Analysis/
  </mosaic_path>
 
  <mosaic_name type='string'>
@@ -31,7 +31,7 @@
  </mosaic_name>
 
  <save_path type='string'>
- /Users/hanmanhyuk/Documents/Remote Server/2023-12-25-JP_CCND/NewAligned/
+ C:/Users/jipar/Dropbox/1_MP Lab/2_Data/1_ORCA/2023-10-15_K562_CellCycleRNAReduced_CELF4/RNA_expt/Results/Analysis/
  </save_path>
 
 </settings>

@@ -34,10 +34,10 @@ from pickle import load, dump
 import pyqtgraph as pg ### VERSION 0.13.3
 from PyQt5 import QtWidgets, QtCore, QtGui ### VERSION 5.15.2
 
-__version__ = '2024.01.04'
+__version__ = '2024.01.17'
 
-path = '/Users/hanmanhyuk/My Drive/Projects/HMH_YDW1_cDC1+XIST+CD86/Cell_segmentation/'    
-config_name = '2023-12-25.xml'#'default_config.xml'
+path = '/Users/hanmanhyuk/Documents/GitHub/MinHeeLab/CellClassifier/'    
+config_name = '2023-10-06.xml'#'default_config.xml'
 
 translate = QtCore.QCoreApplication.translate
 colors = ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4',
@@ -63,7 +63,8 @@ def construct_cmap_fromblack(color, gamma = 1.5):
     return mcolors.LinearSegmentedColormap('',cdict,gamma=gamma)
 
 def imadjust(img, lb=0, ub=1):
-    p,q = np.histogram(img.flatten(), bins=np.linspace(np.quantile(img, lb), np.quantile(img, ub), 256))
+    #p,q = np.histogram(img.flatten(), bins=np.linspace(np.quantile(img, lb), np.quantile(img, ub), 256))
+    p,q = np.histogram(img.flatten(), bins=np.linspace(img.max()*lb, img.max()*ub, 256))
     adj_img = np.empty(img.shape)
     
     for cnt, (i,j) in enumerate(zip(q[:-1], q[1:])):
@@ -1850,107 +1851,179 @@ class MainWindowUI(object):
         self.GraphicWidget.setGeometry(QtCore.QRect(10, 10, 1041, 841))
         self.GraphicWidget.setObjectName("GraphicWidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
-        self.frame.setGeometry(QtCore.QRect(1060, 490, 269, 371))
+        self.frame.setGeometry(QtCore.QRect(1060, 260, 271, 581))
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.label = QtWidgets.QLabel(self.frame)
-        self.label.setGeometry(QtCore.QRect(0, 0, 131, 31))
+        self.label.setGeometry(QtCore.QRect(0, 0, 271, 31))
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.ChannelSelection_CurrentChannelListWidget = QtWidgets.QListWidget(self.frame)
-        self.ChannelSelection_CurrentChannelListWidget.setGeometry(QtCore.QRect(10, 50, 111, 21))
+        self.ChannelSelection_CurrentChannelListWidget.setGeometry(QtCore.QRect(10, 50, 111, 101))
         self.ChannelSelection_CurrentChannelListWidget.setToolTipDuration(-1)
         self.ChannelSelection_CurrentChannelListWidget.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.ChannelSelection_CurrentChannelListWidget.setObjectName("ChannelSelection_CurrentChannelListWidget")
+        self.label_4 = QtWidgets.QLabel(self.frame)
+        self.label_4.setGeometry(QtCore.QRect(9, 30, 111, 21))
+        self.label_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_4.setObjectName("label_4")
+        self.label_5 = QtWidgets.QLabel(self.frame)
+        self.label_5.setGeometry(QtCore.QRect(10, 160, 251, 21))
+        self.label_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_5.setObjectName("label_5")
+        self.ChannelSelection_ChannelListWidget = QtWidgets.QListWidget(self.frame)
+        self.ChannelSelection_ChannelListWidget.setGeometry(QtCore.QRect(10, 180, 251, 151))
+        self.ChannelSelection_ChannelListWidget.setToolTipDuration(-1)
+        self.ChannelSelection_ChannelListWidget.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
+        self.ChannelSelection_ChannelListWidget.setObjectName("ChannelSelection_ChannelListWidget")
+        self.label_8 = QtWidgets.QLabel(self.frame)
+        self.label_8.setGeometry(QtCore.QRect(150, 30, 111, 21))
+        self.label_8.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_8.setObjectName("label_8")
         self.line = QtWidgets.QFrame(self.frame)
-        self.line.setGeometry(QtCore.QRect(120, 0, 20, 371))
+        self.line.setGeometry(QtCore.QRect(0, 40, 271, 111))
         self.line.setFrameShape(QtWidgets.QFrame.VLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
+        self.ChannelSelection_ChannelListWidgetColor = QtWidgets.QListWidget(self.frame)
+        self.ChannelSelection_ChannelListWidgetColor.setEnabled(True)
+        self.ChannelSelection_ChannelListWidgetColor.setGeometry(QtCore.QRect(150, 50, 111, 101))
+        self.ChannelSelection_ChannelListWidgetColor.setToolTipDuration(-1)
+        self.ChannelSelection_ChannelListWidgetColor.setSelectionMode(QtWidgets.QAbstractItemView.NoSelection)
+        self.ChannelSelection_ChannelListWidgetColor.setObjectName("ChannelSelection_ChannelListWidgetColor")
+        self.ChannelSelection_ChangeChannelPushButton = QtWidgets.QPushButton(self.frame)
+        self.ChannelSelection_ChangeChannelPushButton.setGeometry(QtCore.QRect(20, 330, 231, 32))
+        self.ChannelSelection_ChangeChannelPushButton.setObjectName("ChannelSelection_ChangeChannelPushButton")
+        self.line_3 = QtWidgets.QFrame(self.frame)
+        self.line_3.setGeometry(QtCore.QRect(10, 355, 251, 21))
+        self.line_3.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_3.setObjectName("line_3")
+        self.line_2 = QtWidgets.QFrame(self.frame)
+        self.line_2.setGeometry(QtCore.QRect(0, 390, 271, 191))
+        self.line_2.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_2.setObjectName("line_2")
         self.ChannelSelection_MinimumSlider = QtWidgets.QSlider(self.frame)
-        self.ChannelSelection_MinimumSlider.setGeometry(QtCore.QRect(140, 40, 51, 291))
+        self.ChannelSelection_MinimumSlider.setGeometry(QtCore.QRect(10, 400, 51, 171))
         self.ChannelSelection_MinimumSlider.setMaximum(10000)
         self.ChannelSelection_MinimumSlider.setProperty("value", 3000)
         self.ChannelSelection_MinimumSlider.setOrientation(QtCore.Qt.Vertical)
         self.ChannelSelection_MinimumSlider.setObjectName("ChannelSelection_MinimumSlider")
         self.label_2 = QtWidgets.QLabel(self.frame)
-        self.label_2.setGeometry(QtCore.QRect(140, 0, 51, 31))
+        self.label_2.setGeometry(QtCore.QRect(10, 370, 121, 31))
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setObjectName("label_2")
+        self.ChannelSelection_MinimumLineEdit = QtWidgets.QLineEdit(self.frame)
+        self.ChannelSelection_MinimumLineEdit.setGeometry(QtCore.QRect(60, 420, 61, 21))
+        self.ChannelSelection_MinimumLineEdit.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.ChannelSelection_MinimumLineEdit.setAlignment(QtCore.Qt.AlignCenter)
+        self.ChannelSelection_MinimumLineEdit.setObjectName("ChannelSelection_MinimumLineEdit")
         self.label_3 = QtWidgets.QLabel(self.frame)
-        self.label_3.setGeometry(QtCore.QRect(210, 0, 51, 31))
+        self.label_3.setGeometry(QtCore.QRect(140, 370, 121, 31))
         self.label_3.setAlignment(QtCore.Qt.AlignCenter)
         self.label_3.setObjectName("label_3")
         self.ChannelSelection_MaximumSlider = QtWidgets.QSlider(self.frame)
-        self.ChannelSelection_MaximumSlider.setGeometry(QtCore.QRect(211, 40, 51, 291))
+        self.ChannelSelection_MaximumSlider.setGeometry(QtCore.QRect(150, 400, 51, 171))
         self.ChannelSelection_MaximumSlider.setMaximum(10000)
         self.ChannelSelection_MaximumSlider.setSingleStep(1)
         self.ChannelSelection_MaximumSlider.setProperty("value", 9999)
         self.ChannelSelection_MaximumSlider.setOrientation(QtCore.Qt.Vertical)
         self.ChannelSelection_MaximumSlider.setObjectName("ChannelSelection_MaximumSlider")
-        self.line_2 = QtWidgets.QFrame(self.frame)
-        self.line_2.setGeometry(QtCore.QRect(190, 0, 21, 371))
-        self.line_2.setFrameShape(QtWidgets.QFrame.VLine)
-        self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.line_2.setObjectName("line_2")
-        self.ChannelSelection_ChannelListWidget = QtWidgets.QListWidget(self.frame)
-        self.ChannelSelection_ChannelListWidget.setGeometry(QtCore.QRect(10, 90, 111, 121))
-        self.ChannelSelection_ChannelListWidget.setToolTipDuration(-1)
-        self.ChannelSelection_ChannelListWidget.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
-        self.ChannelSelection_ChannelListWidget.setObjectName("ChannelSelection_ChannelListWidget")
-        self.ChannelSelection_ChangeChannelPushButton = QtWidgets.QPushButton(self.frame)
-        self.ChannelSelection_ChangeChannelPushButton.setGeometry(QtCore.QRect(10, 340, 111, 32))
-        self.ChannelSelection_ChangeChannelPushButton.setObjectName("ChannelSelection_ChangeChannelPushButton")
-        self.label_4 = QtWidgets.QLabel(self.frame)
-        self.label_4.setGeometry(QtCore.QRect(9, 30, 111, 21))
-        self.label_4.setObjectName("label_4")
-        self.label_5 = QtWidgets.QLabel(self.frame)
-        self.label_5.setGeometry(QtCore.QRect(10, 70, 111, 21))
-        self.label_5.setObjectName("label_5")
-        self.ChannelSelection_MinimumLineEdit = QtWidgets.QLineEdit(self.frame)
-        self.ChannelSelection_MinimumLineEdit.setGeometry(QtCore.QRect(140, 340, 51, 21))
-        self.ChannelSelection_MinimumLineEdit.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.ChannelSelection_MinimumLineEdit.setAlignment(QtCore.Qt.AlignCenter)
-        self.ChannelSelection_MinimumLineEdit.setObjectName("ChannelSelection_MinimumLineEdit")
         self.ChannelSelection_MaximumLineEdit = QtWidgets.QLineEdit(self.frame)
-        self.ChannelSelection_MaximumLineEdit.setGeometry(QtCore.QRect(210, 340, 51, 21))
+        self.ChannelSelection_MaximumLineEdit.setGeometry(QtCore.QRect(200, 420, 61, 21))
         self.ChannelSelection_MaximumLineEdit.setAlignment(QtCore.Qt.AlignCenter)
         self.ChannelSelection_MaximumLineEdit.setObjectName("ChannelSelection_MaximumLineEdit")
-        self.ChannelSelection_ChannelListWidgetColor = QtWidgets.QListWidget(self.frame)
-        self.ChannelSelection_ChannelListWidgetColor.setEnabled(True)
-        self.ChannelSelection_ChannelListWidgetColor.setGeometry(QtCore.QRect(10, 220, 111, 111))
-        self.ChannelSelection_ChannelListWidgetColor.setToolTipDuration(-1)
-        self.ChannelSelection_ChannelListWidgetColor.setSelectionMode(QtWidgets.QAbstractItemView.NoSelection)
-        self.ChannelSelection_ChannelListWidgetColor.setObjectName("ChannelSelection_ChannelListWidgetColor")
+        self.label_9 = QtWidgets.QLabel(self.frame)
+        self.label_9.setGeometry(QtCore.QRect(60, 400, 61, 21))
+        self.label_9.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_9.setObjectName("label_9")
+        self.label_11 = QtWidgets.QLabel(self.frame)
+        self.label_11.setGeometry(QtCore.QRect(200, 400, 61, 21))
+        self.label_11.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_11.setObjectName("label_11")
+        self.label_10 = QtWidgets.QLabel(self.frame)
+        self.label_10.setGeometry(QtCore.QRect(60, 450, 61, 21))
+        self.label_10.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_10.setObjectName("label_10")
+        self.label_12 = QtWidgets.QLabel(self.frame)
+        self.label_12.setGeometry(QtCore.QRect(200, 450, 61, 21))
+        self.label_12.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_12.setObjectName("label_12")
+        self.ChannelSelection_MinimumAbsLineEdit = QtWidgets.QLineEdit(self.frame)
+        self.ChannelSelection_MinimumAbsLineEdit.setEnabled(False)
+        self.ChannelSelection_MinimumAbsLineEdit.setGeometry(QtCore.QRect(60, 470, 61, 21))
+        self.ChannelSelection_MinimumAbsLineEdit.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.ChannelSelection_MinimumAbsLineEdit.setText("")
+        self.ChannelSelection_MinimumAbsLineEdit.setAlignment(QtCore.Qt.AlignCenter)
+        self.ChannelSelection_MinimumAbsLineEdit.setObjectName("ChannelSelection_MinimumAbsLineEdit")
+        self.ChannelSelection_MaximumAbsLineEdit = QtWidgets.QLineEdit(self.frame)
+        self.ChannelSelection_MaximumAbsLineEdit.setEnabled(False)
+        self.ChannelSelection_MaximumAbsLineEdit.setGeometry(QtCore.QRect(200, 470, 61, 21))
+        self.ChannelSelection_MaximumAbsLineEdit.setText("")
+        self.ChannelSelection_MaximumAbsLineEdit.setAlignment(QtCore.Qt.AlignCenter)
+        self.ChannelSelection_MaximumAbsLineEdit.setObjectName("ChannelSelection_MaximumAbsLineEdit")
+        self.line.raise_()
+        self.label.raise_()
+        self.ChannelSelection_CurrentChannelListWidget.raise_()
+        self.label_4.raise_()
+        self.label_5.raise_()
+        self.ChannelSelection_ChannelListWidget.raise_()
+        self.label_8.raise_()
+        self.ChannelSelection_ChannelListWidgetColor.raise_()
+        self.ChannelSelection_ChangeChannelPushButton.raise_()
+        self.line_3.raise_()
+        self.line_2.raise_()
+        self.ChannelSelection_MinimumSlider.raise_()
+        self.label_2.raise_()
+        self.ChannelSelection_MinimumLineEdit.raise_()
+        self.label_3.raise_()
+        self.ChannelSelection_MaximumSlider.raise_()
+        self.ChannelSelection_MaximumLineEdit.raise_()
+        self.label_9.raise_()
+        self.label_11.raise_()
+        self.label_10.raise_()
+        self.label_12.raise_()
+        self.ChannelSelection_MinimumAbsLineEdit.raise_()
+        self.ChannelSelection_MaximumAbsLineEdit.raise_()
         self.frame_2 = QtWidgets.QFrame(self.centralwidget)
-        self.frame_2.setGeometry(QtCore.QRect(1060, 250, 271, 231))
+        self.frame_2.setGeometry(QtCore.QRect(1200, 10, 131, 241))
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
         self.label_7 = QtWidgets.QLabel(self.frame_2)
-        self.label_7.setGeometry(QtCore.QRect(10, 0, 71, 31))
+        self.label_7.setGeometry(QtCore.QRect(10, 0, 111, 31))
+        self.label_7.setAlignment(QtCore.Qt.AlignCenter)
         self.label_7.setObjectName("label_7")
         self.SelectCell_ListWidget = QtWidgets.QListWidget(self.frame_2)
-        self.SelectCell_ListWidget.setGeometry(QtCore.QRect(10, 30, 251, 171))
+        self.SelectCell_ListWidget.setGeometry(QtCore.QRect(10, 30, 111, 181))
         self.SelectCell_ListWidget.setObjectName("SelectCell_ListWidget")
         self.SelectCell_ChangeCellPushButton = QtWidgets.QPushButton(self.frame_2)
-        self.SelectCell_ChangeCellPushButton.setGeometry(QtCore.QRect(10, 200, 251, 32))
+        self.SelectCell_ChangeCellPushButton.setGeometry(QtCore.QRect(10, 210, 111, 32))
         self.SelectCell_ChangeCellPushButton.setObjectName("SelectCell_ChangeCellPushButton")
         self.frame_3 = QtWidgets.QFrame(self.centralwidget)
-        self.frame_3.setGeometry(QtCore.QRect(1060, 10, 271, 231))
+        self.frame_3.setGeometry(QtCore.QRect(1060, 10, 131, 241))
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
         self.label_6 = QtWidgets.QLabel(self.frame_3)
-        self.label_6.setGeometry(QtCore.QRect(10, 0, 71, 31))
+        self.label_6.setGeometry(QtCore.QRect(10, 0, 111, 31))
+        self.label_6.setAlignment(QtCore.Qt.AlignCenter)
         self.label_6.setObjectName("label_6")
         self.SelectFOV_ListWidget = QtWidgets.QListWidget(self.frame_3)
-        self.SelectFOV_ListWidget.setGeometry(QtCore.QRect(10, 30, 251, 171))
+        self.SelectFOV_ListWidget.setGeometry(QtCore.QRect(10, 30, 111, 181))
         self.SelectFOV_ListWidget.setObjectName("SelectFOV_ListWidget")
         self.SelectFOV_ChangeFOVPushButton = QtWidgets.QPushButton(self.frame_3)
-        self.SelectFOV_ChangeFOVPushButton.setGeometry(QtCore.QRect(10, 200, 251, 32))
+        self.SelectFOV_ChangeFOVPushButton.setGeometry(QtCore.QRect(10, 210, 111, 32))
         self.SelectFOV_ChangeFOVPushButton.setObjectName("SelectFOV_ChangeFOVPushButton")
+        self.FixViewPushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.FixViewPushButton.setGeometry(QtCore.QRect(1060, 840, 131, 32))
+        self.FixViewPushButton.setObjectName("FixViewPushButton")
+        self.InitializeViewPushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.InitializeViewPushButton.setEnabled(False)
+        self.InitializeViewPushButton.setGeometry(QtCore.QRect(1200, 840, 131, 32))
+        self.InitializeViewPushButton.setObjectName("InitializeViewPushButton")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1339, 24))
@@ -2004,17 +2077,24 @@ class MainWindowUI(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "Channel"))
-        self.label_2.setText(_translate("MainWindow", "Min"))
-        self.label_3.setText(_translate("MainWindow", "Max"))
-        self.ChannelSelection_ChangeChannelPushButton.setText(_translate("MainWindow", "Change"))
         self.label_4.setText(_translate("MainWindow", "Working"))
         self.label_5.setText(_translate("MainWindow", "Total"))
+        self.label_8.setText(_translate("MainWindow", "Color"))
+        self.ChannelSelection_ChangeChannelPushButton.setText(_translate("MainWindow", "Change Channel"))
+        self.label_2.setText(_translate("MainWindow", "Min"))
         self.ChannelSelection_MinimumLineEdit.setText(_translate("MainWindow", "0.3"))
+        self.label_3.setText(_translate("MainWindow", "Max"))
         self.ChannelSelection_MaximumLineEdit.setText(_translate("MainWindow", "0.9999"))
+        self.label_9.setText(_translate("MainWindow", "frac"))
+        self.label_11.setText(_translate("MainWindow", "frac"))
+        self.label_10.setText(_translate("MainWindow", "abs"))
+        self.label_12.setText(_translate("MainWindow", "abs"))
         self.label_7.setText(_translate("MainWindow", "Select Cell"))
         self.SelectCell_ChangeCellPushButton.setText(_translate("MainWindow", "Change Cell"))
         self.label_6.setText(_translate("MainWindow", "Select FOV"))
         self.SelectFOV_ChangeFOVPushButton.setText(_translate("MainWindow", "Change FOV"))
+        self.FixViewPushButton.setText(_translate("MainWindow", "Fix View"))
+        self.InitializeViewPushButton.setText(_translate("MainWindow", "Initialize View"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
         self.menuSave.setTitle(_translate("MainWindow", "Save"))
         self.menuLoad.setTitle(_translate("MainWindow", "Load"))
@@ -2145,13 +2225,14 @@ class MainImageCanvas(pg.ImageView):
         self.celltype_determination = {'fov':{},
                                        'barcode':{}}
         self.celltype_mode = 'fov'
+        self._autoRange = True
         
         self.current_fov = self.fov_list[0]
         self.current_channel = [self.channel_list[-1]]
         self.working_channel = self.channel_list[-1]
         self.current_cell = self.cell_list[0]
         
-        self.lb = {ch:.3 for ch in self.channel_list}
+        self.lb = {ch:.2 for ch in self.channel_list}
         self.hb = {ch:.9999 for ch in self.channel_list}
         self.w = 8
         self.ymin, self.ymax = 0,0
@@ -2421,8 +2502,8 @@ class MainImageCanvas(pg.ImageView):
         else:
             self._hideAuxiliary()
         self.current_image = total_image[self.ymin:self.ymax,self.xmin:self.xmax]
-        lb = np.quantile(self.current_image[np.isfinite(self.current_image)],self.lb[self.working_channel])
-        hb = np.quantile(self.current_image[np.isfinite(self.current_image)],self.hb[self.working_channel])
+        lb = self.current_image[np.isfinite(self.current_image)].max() * self.lb[self.working_channel]#np.quantile(self.current_image[np.isfinite(self.current_image)],self.lb[self.working_channel])
+        hb = self.current_image[np.isfinite(self.current_image)].max() * self.hb[self.working_channel]#np.quantile(self.current_image[np.isfinite(self.current_image)],self.hb[self.working_channel])
          
         # putative cell boundaries
         if boundaries:
@@ -2453,17 +2534,18 @@ class MainImageCanvas(pg.ImageView):
         self.clear()
         if len(self.current_channel) == 1:
             self.setImage(self.current_image,
-                        levels=(lb,hb)
+                        levels=(lb,hb),
+                        autoRange = self._autoRange
                         )
         else:
             super_image = np.empty((len(self.current_channel),self.ymax-self.ymin,self.xmax-self.xmin,4))
             for i,ch in enumerate(self.current_channel):
                 single_image_original = self.stored_images[self.current_fov][ch][self.ymin:self.ymax,self.xmin:self.xmax]
                 cmap = construct_cmap_fromblack(hex2rgb(colors[i]))
-                single_image_adjust = imadjust(single_image_original,self.lb[self.working_channel],self.hb[self.working_channel])
+                single_image_adjust = imadjust(single_image_original,self.lb[ch],self.hb[ch])
                 single_image = 255 * np.array(list(map(cmap, single_image_adjust)))
                 super_image[i,:,:,:] = single_image
-            self.setImage(super_image.max(0))
+            self.setImage(super_image.max(0),autoRange = self._autoRange)
     
     def _reinitializeCellSegmentListWidget(self, cell_list):
         self.SegmentCellsWidget.ActivateCellBoundaries_cellBoundariesListWidget.clear()
@@ -2983,6 +3065,7 @@ class MainImageCanvas(pg.ImageView):
     def _set_lb_hb(self, lb, hb):
         self.lb = lb
         self.hb = hb
+        #print(self.lb, self.hb)
   
     def _hideAuxiliary(self):
         self._hideBoundaries()
@@ -4290,7 +4373,7 @@ class MainWindow(QtWidgets.QMainWindow):
         
         self.exist_image = False
         self.exist_fov_tiles = False
-        self.lb = {ch:.3 for ch in self.channel_list}
+        self.lb = {ch:.2 for ch in self.channel_list}
         self.hb = {ch:.9999 for ch in self.channel_list}
         
         self.createGUI()
@@ -4325,15 +4408,15 @@ class MainWindow(QtWidgets.QMainWindow):
     def MainWindowConnection(self):
         self.MainWindowUI.SelectFOV_ChangeFOVPushButton.clicked.connect(self._change_fov)
         self.MainWindowUI.SelectCell_ChangeCellPushButton.clicked.connect(self._change_cell)
-        self.MainWindowUI.ChannelSelection_ChannelListWidget.itemSelectionChanged.connect(self._updateCurrentChannel)
         self.MainWindowUI.ChannelSelection_ChangeChannelPushButton.clicked.connect(self._change_channel)
         self.MainWindowUI.ChannelSelection_MinimumSlider.valueChanged.connect(self._minimumSliderValueChanged)
         self.MainWindowUI.ChannelSelection_MaximumSlider.valueChanged.connect(self._maximumSliderValueChanged)
         re = QtCore.QRegExp('\d+\.\d{4}')
         self.MainWindowUI.ChannelSelection_MinimumLineEdit.setValidator(QtGui.QRegExpValidator(re))
         self.MainWindowUI.ChannelSelection_MaximumLineEdit.setValidator(QtGui.QRegExpValidator(re))
-        self.MainWindowUI.ChannelSelection_MinimumLineEdit.textChanged.connect(self._minimumValueChanged)
-        self.MainWindowUI.ChannelSelection_MaximumLineEdit.textChanged.connect(self._maximumValueChanged)
+        self.MainWindowUI.ChannelSelection_MinimumLineEdit.textChanged.connect(self._minimumfracValueChanged)
+        self.MainWindowUI.ChannelSelection_MaximumLineEdit.textChanged.connect(self._maximumfracValueChanged)
+        self.MainWindowUI.ChannelSelection_CurrentChannelListWidget.itemSelectionChanged.connect(self._update_current_channel)
 
         for ch in self.channel_list:
             self.MainWindowUI.ChannelSelection_ChannelListWidget.addItem(str(ch))
@@ -4351,6 +4434,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.MainWindowUI.actionLoad_Spots.triggered.connect(self._load_spots)
         self.MainWindowUI.actionLoad_Spot_Metadata.triggered.connect(self._load_spotmeta)
         
+        self.MainWindowUI.FixViewPushButton.clicked.connect(self._updateAutoRange)
+        self.MainWindowUI.InitializeViewPushButton.clicked.connect(self._updateAutoRange)
+        
         ## Setting up the signals
         self.MainImageCanvas._set_lb_hb(self.lb,self.hb)
         self.MainImageCanvas.save_new_classified_cell_signal.connect(self._update_cell)
@@ -4358,32 +4444,65 @@ class MainWindow(QtWidgets.QMainWindow):
         self.MainImageCanvas.save_new_localized_spot_signal.connect(self._update_spots)
         self.MainImageCanvas.request_stored_spots_signal.connect(self._send_stored_spots)
         self.MainImageCanvas.link_spot_cell_signal.connect(self._link_spot_cell)
+        self.MainImageCanvas.ui.histogram.sigLevelsChanged.connect(self._updateChannelSlider)
+        self.MainImageCanvas.ui.histogram.sigLevelChangeFinished.connect(self._updateChannelSlider)
         
-    def _minimumValueChanged(self):
+    def _updateAutoRange(self):
+        if self.MainWindowUI.FixViewPushButton.isEnabled():
+            self.MainWindowUI.FixViewPushButton.setEnabled(False)
+            self.MainWindowUI.InitializeViewPushButton.setEnabled(True)
+            self.MainImageCanvas._autoRange = False
+            print('autoRange disabled')
+        elif not self.MainWindowUI.FixViewPushButton.isEnabled():
+            self.MainWindowUI.FixViewPushButton.setEnabled(True)
+            self.MainWindowUI.InitializeViewPushButton.setEnabled(False)
+            self.MainImageCanvas._autoRange = True
+            print('autoRange enabled')
+
+    def _minimumfracValueChanged(self):
         value = float(self.MainWindowUI.ChannelSelection_MinimumLineEdit.text())
         self.lb[self.current_channel] = value
         self.MainImageCanvas._set_lb_hb(self.lb, self.hb)
+        img_value = int(self.MainImageCanvas.stored_images[self.current_fov][self.current_channel].max() * value)
+        self.MainWindowUI.ChannelSelection_MinimumAbsLineEdit.setText(f'{img_value}')
     
-    def _maximumValueChanged(self):
+    def _maximumfracValueChanged(self):
         value = float(self.MainWindowUI.ChannelSelection_MaximumLineEdit.text())
         self.hb[self.current_channel] = value
         self.MainImageCanvas._set_lb_hb(self.lb, self.hb)
-    
+        img_value = int(self.MainImageCanvas.stored_images[self.current_fov][self.current_channel].max() * value)
+        self.MainWindowUI.ChannelSelection_MaximumAbsLineEdit.setText(f'{img_value}')
+        
     def _minimumSliderValueChanged(self):
         slidervalue = round(float(self.MainWindowUI.ChannelSelection_MinimumSlider.value()) * .0001,4)
         self.MainWindowUI.ChannelSelection_MinimumLineEdit.setText(f'{slidervalue}')
+        self._minimumfracValueChanged()
+        if len(self.current_channels) == 1:
+            mn = self.MainImageCanvas.current_image.max() * self.lb[self.current_channel]
+            mx = self.MainImageCanvas.current_image.max() * self.hb[self.current_channel]
+            self.MainImageCanvas.ui.histogram.setLevels(mn,mx)
         
     def _maximumSliderValueChanged(self):
         slidervalue = round(float(self.MainWindowUI.ChannelSelection_MaximumSlider.value()) * .0001,4)
         self.MainWindowUI.ChannelSelection_MaximumLineEdit.setText(f'{slidervalue}')
+        self._maximumfracValueChanged()
+        if len(self.current_channels) == 1:
+            mn = self.MainImageCanvas.current_image.max() * self.lb[self.current_channel]
+            mx = self.MainImageCanvas.current_image.max() * self.hb[self.current_channel]
+            self.MainImageCanvas.ui.histogram.setLevels(mn,mx)
         
-    def _updateCurrentChannel(self):
-        ch = self.MainWindowUI.ChannelSelection_ChannelListWidget.selectedItems()[-1].text()
-        self.MainWindowUI.ChannelSelection_CurrentChannelListWidget.clear()
-        self.MainWindowUI.ChannelSelection_CurrentChannelListWidget.addItem(str(ch))
-        self.current_channel = ch
-        self.current_channels = [item.text() for item in self.MainWindowUI.ChannelSelection_ChannelListWidget.selectedItems()]
-    
+    def _updateChannelSlider(self):
+        if (self.MainImageCanvas.ui.histogram.imageItem() is not None) and len(self.current_channels) == 1:
+            mn,mx = self.MainImageCanvas.ui.histogram.getLevels()
+            img_max = self.MainImageCanvas.current_image.max()
+            self.lb[self.current_channel] = round(mn / img_max,4)
+            self.hb[self.current_channel] = round(mx / img_max,4)
+            self.MainImageCanvas._set_lb_hb(self.lb, self.hb)
+            self.MainWindowUI.ChannelSelection_MinimumSlider.setValue(int(mn/img_max * 10000))
+            self.MainWindowUI.ChannelSelection_MaximumSlider.setValue(int(mx/img_max * 10000))
+            self.MainWindowUI.ChannelSelection_MinimumLineEdit.setText(f'{round(mn / img_max,4)}')
+            self.MainWindowUI.ChannelSelection_MaximumLineEdit.setText(f'{round(mx / img_max,4)}')
+            
     def _change_fov(self):
         item = self.MainWindowUI.SelectFOV_ListWidget.currentItem()
         if item is not None: self.current_fov = item.text() 
@@ -4395,8 +4514,22 @@ class MainWindow(QtWidgets.QMainWindow):
         self._updateImage()
         
     def _change_channel(self):
-        self.current_channel = self.MainWindowUI.ChannelSelection_CurrentChannelListWidget.item(0).text()
         self.current_channels = [item.text() for item in self.MainWindowUI.ChannelSelection_ChannelListWidget.selectedItems()]
+        
+        self.MainWindowUI.ChannelSelection_CurrentChannelListWidget.clear()
+        self.MainWindowUI.ChannelSelection_ChannelListWidgetColor.clear()
+        for i,ch in enumerate(self.current_channels):
+            self.MainWindowUI.ChannelSelection_CurrentChannelListWidget.addItem(str(ch))
+            self.MainWindowUI.ChannelSelection_ChannelListWidgetColor.addItem(str(ch))
+            r,g,b = hex2rgb(colors[i])
+            brush = QtGui.QBrush(QtGui.QColor(r,g,b)) if len(self.current_channels) > 1 else QtGui.QBrush(QtGui.QColor(0,0,0))
+            self.MainWindowUI.ChannelSelection_ChannelListWidgetColor.item(i).setForeground(brush)
+        self.MainWindowUI.ChannelSelection_CurrentChannelListWidget.setCurrentRow(i)
+        self.current_channel = self.MainWindowUI.ChannelSelection_CurrentChannelListWidget.item(i).text()
+        print(self.current_channel)
+        self._updateImage()
+        """
+        self.current_channel = self.MainWindowUI.ChannelSelection_CurrentChannelListWidget.item(0).text()
         
         self.lb[self.current_channel] = float(self.MainWindowUI.ChannelSelection_MinimumLineEdit.text())
         self.hb[self.current_channel] = float(self.MainWindowUI.ChannelSelection_MaximumLineEdit.text())
@@ -4414,6 +4547,10 @@ class MainWindow(QtWidgets.QMainWindow):
             target = [channel == ch.text() for channel in self.channel_list]
             index = np.arange(len(self.channel_list))[target][0]
             self.MainWindowUI.ChannelSelection_ChannelListWidgetColor.item(index).setForeground(brush)
+        """
+    def _update_current_channel(self):
+        self.current_channel = self.MainWindowUI.ChannelSelection_CurrentChannelListWidget.currentItem().text()
+        print(self.current_channel)
     
     def _updateImage(self):
         if not self.exist_image or not self.exist_fov_tiles: return

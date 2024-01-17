@@ -2,7 +2,11 @@
 
 <settings><!-- Default kilroy settings -->
   <!-- Valve parameters -->
-  
+
+ <celltype_mode type='string'>
+ fov
+ </celltype_mode>
+
  <celltypes type='string'>
  WT, WT LPS/rXCL1
  </celltypes>
@@ -10,6 +14,10 @@
  <celltypes_fov type='string'>
  46-93, 1-46
  </celltypes_fov>
+
+ <celltypes_barcode type='string'>
+ B130,B131
+ </celltypes_barcode>
 
  <spotNames type='string'>
  fiducial, CD86 exon, CD86 Intron 1, CD86 Intron 2, XIST exon
