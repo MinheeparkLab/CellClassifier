@@ -37,7 +37,7 @@ from PyQt5 import QtWidgets, QtCore, QtGui ### VERSION 5.15.2
 __version__ = '2024.01.17'
 
 path = '/Users/hanmanhyuk/Documents/GitHub/MinHeeLab/CellClassifier/'    
-config_name = '2023-10-06.xml'#'default_config.xml'
+config_name = 'default_config.xml'
 
 translate = QtCore.QCoreApplication.translate
 colors = ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4',
@@ -2232,7 +2232,7 @@ class MainImageCanvas(pg.ImageView):
         self.working_channel = self.channel_list[-1]
         self.current_cell = self.cell_list[0]
         
-        self.lb = {ch:.2 for ch in self.channel_list}
+        self.lb = {ch:.3 for ch in self.channel_list}
         self.hb = {ch:.9999 for ch in self.channel_list}
         self.w = 8
         self.ymin, self.ymax = 0,0
@@ -2807,6 +2807,7 @@ class MainImageCanvas(pg.ImageView):
         self.view.addItem(self.manual_boundaries)
         self._reindexCells()
         self._showBoundaries()
+        self._updateManualCellClassficationMode()
         self._updateManualCellClassficationMode()
         self.SegmentCellsWidget.transientCellContainer_textBrowser.setText(f'Cell-containing FOVs: {[k for k,v in self.CellContainer.num_cells.items() if v > 0]}\n' +
                                                                            f'Total cells: {np.sum([v for v in self.CellContainer.num_cells.values()])}\n' +
@@ -4032,7 +4033,7 @@ class CellContainer():
         bx,by = np.array([]).reshape(-1,1),np.array([]).reshape(-1,1)
         for id in cellIDs:
             x,y = self.data[fov][id]
-            ymin, ymax, xmin, xmax = y.min(), y.max(), x.min(), x.max()
+            ymin, ymax, xmin, xmax = max(0,y.min()-1), min(self.h[fov],y.max()+1), max(0,x.min()-1), min(self.w[fov],x.max()+1)
             mini_canvas = np.zeros((ymax-ymin+1, xmax-xmin+1))
             mini_canvas[y-ymin,x-xmin] = 1
             boundaryline = mini_canvas - skimage.morphology.erosion(mini_canvas, self.four_connect).astype(int)
@@ -4371,9 +4372,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.current_channel = self.channel_list[0]
         self.current_channels = [self.channel_list[0]]
         
+        print(f'Celltypes: {self.celltypes}\nChannel: {self.channel_list}\nCelltype mode: {self.celltype_mode}')
+        
         self.exist_image = False
         self.exist_fov_tiles = False
-        self.lb = {ch:.2 for ch in self.channel_list}
+        self.lb = {ch:.3 for ch in self.channel_list}
         self.hb = {ch:.9999 for ch in self.channel_list}
         
         self.createGUI()
@@ -4528,28 +4531,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.current_channel = self.MainWindowUI.ChannelSelection_CurrentChannelListWidget.item(i).text()
         print(self.current_channel)
         self._updateImage()
-        """
-        self.current_channel = self.MainWindowUI.ChannelSelection_CurrentChannelListWidget.item(0).text()
         
-        self.lb[self.current_channel] = float(self.MainWindowUI.ChannelSelection_MinimumLineEdit.text())
-        self.hb[self.current_channel] = float(self.MainWindowUI.ChannelSelection_MaximumLineEdit.text())
-        self.MainImageCanvas._set_lb_hb(self.lb, self.hb)
-        self._updateImage()
-        
-        for i in range(len(self.channel_list)):
-            whitebrush = QtGui.QBrush(QtGui.QColor(255,255,255))
-            self.MainWindowUI.ChannelSelection_ChannelListWidgetColor.item(i).setForeground(whitebrush)
-        
-        selectedchannels = self.MainWindowUI.ChannelSelection_ChannelListWidget.selectedItems()
-        for i,ch in enumerate(selectedchannels):
-            r,g,b = hex2rgb(colors[i])
-            brush = QtGui.QBrush(QtGui.QColor(r,g,b)) if len(selectedchannels) > 1 else QtGui.QBrush(QtGui.QColor(0,0,0))
-            target = [channel == ch.text() for channel in self.channel_list]
-            index = np.arange(len(self.channel_list))[target][0]
-            self.MainWindowUI.ChannelSelection_ChannelListWidgetColor.item(index).setForeground(brush)
-        """
     def _update_current_channel(self):
         self.current_channel = self.MainWindowUI.ChannelSelection_CurrentChannelListWidget.currentItem().text()
+        self.MainImageCanvas.working_channel = self.current_channel
         print(self.current_channel)
     
     def _updateImage(self):
@@ -4591,7 +4576,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self._divideImage()
     
     def _divideImage(self):
-        if not self.exist_image or not self.exist_fov_tiles: return
+        if (not self.exist_image) or (not self.exist_fov_tiles): return
         self.images = {f:{ch:{} for ch in self.channel_list} for f in self.fov_list}
         
         for f in self.fov_list:
@@ -4604,6 +4589,19 @@ class MainWindow(QtWidgets.QMainWindow):
                 
         self.MainImageCanvas._loadImages(self.images)
         self._updateImage()
+        
+        for f in self.fov_list:
+            for ch in self.channel_list:
+                img_max = self.images[str(f)][ch].max()
+                mn = round(np.quantile(self.images[str(f)][ch], .5) / img_max, 4)
+                mx = round(np.quantile(self.images[str(f)][ch], .9999) / img_max, 4)
+                self.lb[ch] = mn
+                self.hb[ch] = mx
+                self.MainImageCanvas._set_lb_hb(self.lb, self.hb)
+                self.MainWindowUI.ChannelSelection_MinimumSlider.setValue(int(mn * 10000))
+                self.MainWindowUI.ChannelSelection_MaximumSlider.setValue(int(mx * 10000))
+                self.MainWindowUI.ChannelSelection_MinimumLineEdit.setText(f'{mn}')
+                self.MainWindowUI.ChannelSelection_MaximumLineEdit.setText(f'{mx}')
         
     def _synchronizeCanvasAndMain(self):
         self.MainImageCanvas.fov_list = deepcopy(self.fov_list)
@@ -4832,7 +4830,16 @@ class MainWindow(QtWidgets.QMainWindow):
         self._link_spot_cell(False)
         
 if __name__ == '__main__':
-    app = QtWidgets.QApplication(sys.argv)
-    window = MainWindow(path + config_name)
-    window.show()
-    sys.exit(app.exec_())
+    question_app = QtWidgets.QApplication(sys.argv)
+    question_window = QtWidgets.QMainWindow()
+    question_window.show()
+    config_file = QtWidgets.QFileDialog.getOpenFileName(question_window, 'Load configuration file', path, 'configuration file (*.xml)')[0]
+    if config_file == '':
+        question_window.close()
+    else:
+        question_window.close()
+        print(config_file)
+        app = QtWidgets.QApplication(sys.argv)
+        window = MainWindow(config_file)#(path + config_name)
+        window.show()
+        sys.exit(app.exec_())
